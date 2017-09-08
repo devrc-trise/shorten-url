@@ -21,3 +21,4 @@
 //= require angular-ui-bootstrap-tpls
 //= require nprogress
 //= require nprogress-angular
+//= require angular/deps.js.coffee

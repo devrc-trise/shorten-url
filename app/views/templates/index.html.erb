@@ -1,0 +1,16 @@
+<h2 class="text-success mt40">Simplify your links</h2>
+<div class="row mt15">
+  <div class="col-md-8">
+    <form name="form.link" ng-submit="submit()">
+      <div class="form-group">
+        <div class="input-group">
+          <input ng-model="link.original_url" type="text" class="form-control input-sm" placeholder="Your original URL here" required />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-success btn-sm" type="button" ng-disabled="disabledSubmit">SHORTEN URL</button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
