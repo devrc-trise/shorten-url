@@ -1,0 +1,12 @@
+<script type="text/ng-template" id="modals/link.html">
+  <div class="modal-header">
+    <h4 class="modal-title">Your short URL</h4>
+  </div>
+  <div class="modal-body short-link text-center">
+    <code>{{link.shortened_url}}</code>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary btn-sm copy" data-clipboard-text="{{link.shortened_url}}">COPY</button>
+    <button class="btn btn-success btn-sm" ng-click="done()">DONE</button>
+  </div>
+</script>

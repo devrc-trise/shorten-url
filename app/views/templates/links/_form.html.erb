@@ -1,0 +1,10 @@
+<form name="form.link" ng-submit="submit()">
+  <div class="form-group">
+    <div class="input-group">
+      <input ng-model="link.original_url" type="text" class="form-control" placeholder="Your original URL here" required />
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-success" type="button" ng-disabled="disabledSubmit">SHORTEN URL</button>
+      </span>
+    </div>
+  </div>
+</form>
