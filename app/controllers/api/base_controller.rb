@@ -7,9 +7,9 @@ class Api::BaseController < ActionController::Base
   protected
 
   def api_auth
-    # authenticate_or_request_with_http_basic do |name, token|
-    #   @current_api_client = ApiClient.find_by(name: name, token: token)
-    # end
+    authenticate_or_request_with_http_basic do |username, password|
+      @current_api_client = ApiClient.find_by(username: username, password: password)
+    end
   end
 
   def paginate_results(results, var = controller_name)

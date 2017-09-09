@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908144245) do
+ActiveRecord::Schema.define(version: 20170909083028) do
+
+  create_table "api_clients", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "password", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["password"], name: "index_api_clients_on_password"
+    t.index ["username"], name: "index_api_clients_on_username"
+  end
 
   create_table "links", force: :cascade do |t|
     t.string "original_url", null: false

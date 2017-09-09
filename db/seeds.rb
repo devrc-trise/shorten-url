@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Create api clients
+ApiClient.create username: 'web'
+ApiClient.create username: 'api', password: '123qwe'
