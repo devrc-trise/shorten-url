@@ -1,4 +1,6 @@
 class Link < ApplicationRecord
+  has_many :visits
+
   validates :original_url, presence: true
   validates :short_url_code, presence: true, uniqueness: true
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909103021) do
+ActiveRecord::Schema.define(version: 20170909121527) do
 
   create_table "api_clients", force: :cascade do |t|
     t.string "username", null: false
@@ -28,6 +28,32 @@ ActiveRecord::Schema.define(version: 20170909103021) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["short_url_code"], name: "index_links_on_short_url_code"
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.integer "link_id", null: false
+    t.string "remote_ip"
+    t.string "user_agent"
+    t.string "referrer"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "postal_code"
+    t.string "country"
+    t.string "country_code"
+    t.string "browser_name"
+    t.string "browser_full_version"
+    t.string "browser_version"
+    t.string "device_id"
+    t.string "device_name"
+    t.string "platform_id"
+    t.string "platform_name"
+    t.string "platform_version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["link_id"], name: "index_visits_on_link_id"
   end
 
 end

@@ -8,6 +8,6 @@ class RedirectController < ApplicationController
   protected
 
   def log_visit
-
+    Visit.create_from_request(request, @link.id)
   end
 end
