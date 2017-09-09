@@ -2,7 +2,7 @@ class Link < ApplicationRecord
   has_many :visits
 
   validates :original_url, presence: true
-  validates :short_url_code, presence: true, uniqueness: true
+  validates :short_url_code, presence: true, uniqueness: { case_sensitive: true }
 
   before_validation :shorten_url
 
@@ -13,12 +13,16 @@ class Link < ApplicationRecord
   protected
 
   def shorten_url
-    self.short_url_code = generate_code(4)
+    loop do
+      self.short_url_code = generate_code(6)
+      break if Link.where(short_url_code: self.short_url_code).count <= 0
+    end
   end
 
-  # TODO: update shortening url logic. Not final, just for testing
+  # for size 6 we have 56,800,235,584 possible permutations (if the online calculator was right!)
+  # TODO: find a way to make the size dynamic. i.e. increment it when we almost reach the limit
   def generate_code(size)
-    charset = %w{2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z}
-    (0...size).map{ charset.to_a[rand(charset.size)] }.join
+    charset = [*('a'..'z'), *('A'..'Z'), *('0'..'9')]
+    (0...size).map { charset[rand(charset.size)] }.join
   end
 end

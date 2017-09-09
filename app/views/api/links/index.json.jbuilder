@@ -3,4 +3,6 @@ json.links @links do |link|
   json.visits link.visits.count
 end
 
-json.count @links.count
+json.page @page
+json.per_page @per_page
+json.total @links.count

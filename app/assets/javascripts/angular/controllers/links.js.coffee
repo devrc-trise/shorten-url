@@ -30,7 +30,7 @@ class LinksCtrl
       Link.resources.get { page: $scope.page, per_page: $scope.perPage }, (data) ->
         $scope.emptyTxt = $scope.noDataTxt
         $scope.links = data.links
-        $scope.totalItems = data.count
+        $scope.totalItems = data.total
 
     $scope.pageChanged = ->
       loadLinks()
