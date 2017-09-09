@@ -35,3 +35,9 @@ WebApp.run ['$rootScope', '$base64', '$http',
 
     $http.defaults.headers.common['Authorization'] = "Basic #{apiToken}"
 ]
+
+WebApp.filter(
+  'url', ->
+    (url) ->
+      if (!/^https?:\/\//i.test(url)) then "http://#{url}" else url
+)

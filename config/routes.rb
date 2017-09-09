@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   # Angular Support
   get 'templates/:path.html' => 'templates#page', constraints: { path: /.+/ }
+
+  get ':code' => 'redirect#index', constraints: { code: /.+/ }
 end

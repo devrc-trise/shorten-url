@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909083028) do
+ActiveRecord::Schema.define(version: 20170909103021) do
 
   create_table "api_clients", force: :cascade do |t|
     t.string "username", null: false
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20170909083028) do
 
   create_table "links", force: :cascade do |t|
     t.string "original_url", null: false
-    t.string "shortened_url", null: false
+    t.string "short_url_code", null: false
     t.string "user_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shortened_url"], name: "index_links_on_shortened_url"
+    t.index ["short_url_code"], name: "index_links_on_short_url_code"
   end
 
 end

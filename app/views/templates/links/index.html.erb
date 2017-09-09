@@ -20,9 +20,9 @@
       <td colspan="5" class="text-center"><i ng-bind="emptyTxt"></i></td>
     </tr>
     <tr ng-repeat="link in links">
-      <td class="ellipsis"><a target="_blank" href="{{link.shortened_url}}">{{link.original_url}}</a></td>
+      <td class="ellipsis"><a target="_blank" href="{{link.original_url | url}}">{{link.original_url}}</a></td>
       <td am-time-ago="link.created_at"></td>
-      <td class="ellipsis"><a target="_blank" href="{{link.shortened_url}}">{{link.shortened_url}}</a></td>
+      <td class="ellipsis"><a target="_blank" href="<%= base_url %>/{{link.short_url_code}}"><%= host %>/{{link.short_url_code}}</a></td>
       <td ng-bind="link.visits"></td>
       <td><i class="fa fa-list"></i></td>
     </tr>

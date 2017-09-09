@@ -6,4 +6,12 @@ module ApplicationHelper
       tag('meta', name: 'api_client_password', content: client&.password)
     ].join("\n").html_safe
   end
+
+  def base_url
+    "#{request.protocol}#{host}"
+  end
+
+  def host
+    request.port == 80 ? request.host : request.host_with_port
+  end
 end

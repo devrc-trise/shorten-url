@@ -32,6 +32,9 @@
 @import 'font-awesome';
 @import 'spacing';
 
+a, table a:not(.btn), .table a:not(.btn) {
+  text-decoration: none;
+}
 .modal-body.short-link {
   background-color: rgba(0, 0, 0, 0.25);
 }
