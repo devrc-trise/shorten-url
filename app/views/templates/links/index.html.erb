@@ -5,4 +5,29 @@
   </div>
 </div>
 
+<table class="table table-hover mt60">
+  <thead>
+    <tr>
+      <th>ORIGINAL URL</th>
+      <th>CREATED</th>
+      <th>SHORT URL</th>
+      <th>VISITS</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-hide="links.length">
+      <td colspan="5" class="text-center"><i ng-bind="emptyTxt"></i></td>
+    </tr>
+    <tr ng-repeat="link in links">
+      <td class="ellipsis"><a target="_blank" href="{{link.shortened_url}}">{{link.original_url}}</a></td>
+      <td am-time-ago="link.created_at"></td>
+      <td class="ellipsis"><a target="_blank" href="{{link.shortened_url}}">{{link.shortened_url}}</a></td>
+      <td ng-bind="link.visits"></td>
+      <td><i class="fa fa-list"></i></td>
+    </tr>
+  </tbody>
+</table>
+<div ng-show="totalItems > 0"><%= render partial: 'commons/pagination' %></div>
+
 <%= render partial: 'templates/modals/link' %>

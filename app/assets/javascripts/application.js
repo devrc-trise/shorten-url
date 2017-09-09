@@ -15,6 +15,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require clipboard.min.js
+//= require moment.min.js
 //= require angular
 //= require angular-animate
 //= require angular-resource

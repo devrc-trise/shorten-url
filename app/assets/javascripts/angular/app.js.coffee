@@ -3,6 +3,7 @@ WebApp = angular.module 'WebApp', [
   'ngAnimate'
   'nprogress-rails'
   'base64'
+  'angularMoment'
   'ui.bootstrap'
   'LinkService'
 ]
@@ -20,6 +21,13 @@ WebApp.config ['$routeProvider', '$httpProvider',
 
 WebApp.run ['$rootScope', '$base64', '$http',
   ($rootScope, $base64, $http) ->
+    # Pagination default values
+    $rootScope.loadingTxt = 'loading...'
+    $rootScope.noDataTxt = 'No data found.'
+    $rootScope.page = 1
+    $rootScope.perPage = 10
+    $rootScope.totalItems = 0
+
     # API auth - set headers
     apiClientUsername  = window.document.getElementsByName('api_client_username')[0].content
     apiClientPassword = window.document.getElementsByName('api_client_password')[0].content

@@ -1,6 +1,6 @@
 class Api::LinksController < Api::BaseController
   def index
-    paginate_results Link
+    paginate_results Link.order(created_at: :desc)
   end
 
   def create

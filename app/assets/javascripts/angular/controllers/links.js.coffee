@@ -8,6 +8,7 @@ class LinksCtrl
       promise.then (data) ->
         $scope.link = {}
         showModal(data.link)
+        loadLinks()
       , (fail) ->
         console.log fail.data.messages
       .finally ->
@@ -23,6 +24,18 @@ class LinksCtrl
         keyboard: false
         resolve:
           link: () -> link
+
+    loadLinks = ->
+      $scope.emptyTxt = $scope.loadingTxt
+      Link.resources.get { page: $scope.page, per_page: $scope.perPage }, (data) ->
+        $scope.emptyTxt = $scope.noDataTxt
+        $scope.links = data.links
+        $scope.totalItems = data.count
+
+    $scope.pageChanged = ->
+      loadLinks()
+
+    loadLinks()
 
 LinksCtrl.$inject = ['$scope', 'Link', '$uibModal']
 WebApp.controller 'LinksCtrl', LinksCtrl
