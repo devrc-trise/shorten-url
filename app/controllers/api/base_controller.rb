@@ -12,6 +12,12 @@ class Api::BaseController < ActionController::Base
     # end
   end
 
+  def paginate_results(results, var = controller_name)
+    page = params[:page].presence || 1
+    per_page = params[:per_page].presence || 10
+    instance_variable_set "@#{var.to_s}", results.paginate(page: page, per_page: per_page)
+  end
+
   def bad_request(e)
     messages = e&.record&.errors&.full_messages.presence || ['There are validation errors.']
     render json: { messages: messages }, status: :bad_request

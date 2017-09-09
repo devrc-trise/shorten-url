@@ -1,5 +1,7 @@
 class Api::LinksController < Api::BaseController
-  def index; end
+  def index
+    paginate_results Link
+  end
 
   def create
     @link = Link.create! link_params.merge(user_ip: request.remote_ip)

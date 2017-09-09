@@ -12,26 +12,26 @@
  *
  */
 
- // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import 'bootstrap-sprockets';
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import 'bootstrap-sprockets';
 
- // Import custom overrides
- @import 'bootstrap/variables';
+// Import custom overrides
+@import 'bootstrap/variables';
 
- // Import darkly variables
- @import 'bootswatch/darkly/variables';
+// Import darkly variables
+@import 'bootswatch/darkly/variables';
 
- // Then bootstrap itself
- @import 'bootstrap';
+// Then bootstrap itself
+@import 'bootstrap';
 
- // And finally bootswatch style itself
- @import 'bootswatch/darkly/bootswatch';
+// And finally bootswatch style itself
+@import 'bootswatch/darkly/bootswatch';
 
- @import 'nprogress';
- @import 'nprogress-bootstrap';
- @import 'font-awesome';
- @import 'spacing';
+@import 'nprogress';
+@import 'nprogress-bootstrap';
+@import 'font-awesome';
+@import 'spacing';
 
- .modal-body.short-link {
+.modal-body.short-link {
   background-color: rgba(0, 0, 0, 0.25);
- }
+}
