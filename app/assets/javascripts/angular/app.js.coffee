@@ -16,6 +16,12 @@ WebApp.config ['$routeProvider', '$httpProvider',
       controller: 'LinksCtrl'
     }
 
+    $routeProvider.when '/:id', {
+      label: 'Link Analytics'
+      templateUrl: '/templates/links/show.html'
+      controller: 'LinksShowCtrl'
+    }
+
     $routeProvider.otherwise { redirectTo: '/' }
 ]
 

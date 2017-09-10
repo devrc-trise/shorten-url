@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   namespace :api, format: 'json' do
-    resources :links, only: [:index, :create]
+    resources :links, only: [:index, :create, :show]
   end
 
   # Angular Support
   get 'templates/:path.html' => 'templates#page', constraints: { path: /.+/ }
 
-  get ':code' => 'redirect#index', constraints: { code: /.+/ }
+  get ':code' => 'redirect#index', constraints: { code: /.+/, format: /html/ }
 end

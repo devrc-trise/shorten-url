@@ -1,0 +1,6 @@
+<h3 class="mt40 mln30">
+  <a href="javascript:history.back()"><i class="fa fa-angle-double-left"></i></a> &nbsp;
+  Analytics for <a target="_blank" href="<%= base_url %>/{{link.short_url_code}}"><%= host %>/{{link.short_url_code}}</a>
+</h3>
+<p>Created <span am-time-ago="link.created_at"></span></p>
+<p>Original URL: <a target="_blank" href="{{link.original_url | url}}">{{link.original_url}} <i class="fa fa-external-link"></i></a></p>

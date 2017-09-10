@@ -1,4 +1,6 @@
 class Api::LinksController < Api::BaseController
+  before_action :set_link, only: [:show]
+
   def index
     paginate_results Link.order(created_at: :desc)
   end
@@ -9,6 +11,10 @@ class Api::LinksController < Api::BaseController
   end
 
   protected
+
+  def set_link
+    @link = Link.find(params[:id])
+  end
 
   def link_params
     @link_params ||= params.require(:link).permit(:original_url)

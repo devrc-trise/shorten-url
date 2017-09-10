@@ -24,7 +24,7 @@
       <td am-time-ago="link.created_at"></td>
       <td class="ellipsis"><a target="_blank" href="<%= base_url %>/{{link.short_url_code}}"><%= host %>/{{link.short_url_code}}</a></td>
       <td ng-bind="link.visits"></td>
-      <td><i class="fa fa-list"></i></td>
+      <td><a ng-href="/#!/{{link.id}}"><i class="fa fa-list"></i></a></td>
     </tr>
   </tbody>
 </table>
