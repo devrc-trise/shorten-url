@@ -1,6 +1,33 @@
-<h3 class="mt40 mln30">
-  <a href="javascript:history.back()"><i class="fa fa-angle-double-left"></i></a> &nbsp;
-  Analytics for <a target="_blank" href="<%= base_url %>/{{link.short_url_code}}"><%= host %>/{{link.short_url_code}}</a>
+<h3 class="mt40 mln28">
+  <a href="javascript:history.back()"><i class="fa fa-angle-double-left"></i></a> Analytics for <a target="_blank" href="<%= base_url %>/{{link.short_url_code}}"><%= host %>/{{link.short_url_code}}</a>
 </h3>
 <p>Created <span am-time-ago="link.created_at"></span></p>
 <p>Original URL: <a target="_blank" href="{{link.original_url | url}}">{{link.original_url}} <i class="fa fa-external-link"></i></a></p>
+<p>Total Visits: {{link.visits}}</p>
+
+<table class="table table-hover mt40">
+  <thead>
+    <tr>
+      <th>REMOTE IP</th>
+      <th>VISITED</th>
+      <th>BROWSER</th>
+      <th>PLATFORM</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-hide="visits.length">
+      <td colspan="4" class="text-center"><i ng-bind="emptyTxt"></i></td>
+    </tr>
+    <tr ng-repeat="visit in visits">
+      <td ng-bind="visit.remote_ip"></td>
+      <td am-time-ago="visit.created_at"></td>
+      <td ng-bind="visit.browser_name"></td>
+      <td ng-bind="visit.platform_name || visit.device_name"></td>
+      <td><span class="label label-success pointer" ng-click="showModal(visit)">More Info</span></td>
+    </tr>
+  </tbody>
+</table>
+<%= render partial: 'commons/pagination' %>
+
+<%= render partial: 'templates/modals/visit' %>

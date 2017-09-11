@@ -1,0 +1,13 @@
+<script type="text/ng-template" id="modals/visit.html">
+  <div class="modal-header">
+    <h4 class="modal-title">VISITOR DETAILS</h4>
+  </div>
+  <div class="modal-body">
+    <div ng-repeat="(key, value) in visit" ng-hide="hideData(key)">
+      <span class="text-info">{{key}}:</span> {{value || '-' }}
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-success btn-sm" ng-click="done()">CLOSE</button>
+  </div>
+</script>
