@@ -1,0 +1,7 @@
+visitor_one:
+  link: google
+  remote_ip: 127.0.0.1
+
+visitor_two:
+  link: google
+  remote_ip: 127.0.0.2

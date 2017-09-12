@@ -4,7 +4,7 @@ class ApiClient < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true
 
-  before_validation :generate_password
+  before_validation :generate_password, on: :create
 
   protected
 
