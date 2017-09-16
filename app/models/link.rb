@@ -1,6 +1,4 @@
 class Link < ApplicationRecord
-  URL_CODE_SIZE = 6
-
   has_many :visits
 
   validates :original_url, presence: true
@@ -22,14 +20,14 @@ class Link < ApplicationRecord
   protected
 
   def shorten_url
+    url_code_size = Rails.configuration.url_code_size
     loop do
-      self.short_url_code = generate_code(URL_CODE_SIZE)
+      self.short_url_code = generate_code(url_code_size)
       break if Link.where(short_url_code: self.short_url_code).count <= 0
     end
   end
 
   # XXX: For size 6 we have 56,800,235,584 possible permutations (if the online calculator was right!)
-  # TODO: The size can be set in a global setting where it can be easily configured. For simplicity, let's hardcode it for now.
   def generate_code(size)
     charset = [*('a'..'z'), *('A'..'Z'), *('0'..'9')]
     (0...size).map { charset[rand(charset.size)] }.join

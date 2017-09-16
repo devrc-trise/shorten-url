@@ -17,5 +17,7 @@ module ShortenUrl
 
     config.time_zone = 'Asia/Manila'
     config.active_record.default_timezone = :local
+
+    config.url_code_size = 6
   end
 end
