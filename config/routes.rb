@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   namespace :api, format: 'json' do
     resources :links, only: [:index, :create, :show] do
+      member do
+        get :analytics
+      end
       resources :visits, only: [:index]
     end
   end

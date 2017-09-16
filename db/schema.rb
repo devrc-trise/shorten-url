@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170909121527) do
 
-  create_table "api_clients", force: :cascade do |t|
+  create_table "api_clients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "username", null: false
     t.string "password", null: false
     t.datetime "created_at", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170909121527) do
     t.index ["username"], name: "index_api_clients_on_username"
   end
 
-  create_table "links", force: :cascade do |t|
+  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "original_url", null: false
     t.string "short_url_code", null: false
     t.string "user_ip"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20170909121527) do
     t.index ["short_url_code"], name: "index_links_on_short_url_code"
   end
 
-  create_table "visits", force: :cascade do |t|
-    t.integer "link_id", null: false
+  create_table "visits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "link_id", null: false
     t.string "remote_ip"
     t.string "user_agent"
     t.string "referrer"
