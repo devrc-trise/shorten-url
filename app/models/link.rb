@@ -12,11 +12,10 @@ class Link < ApplicationRecord
     original_url[/^https?:\/\//].present? ? original_url : "http://#{original_url}"
   end
 
-  def visits_per_hour(start_date, end_date, unique_visitor)
+  def visits_per_hour(start_date, end_date)
     start_time = start_date.beginning_of_day
-    end_time = start_date.end_of_day
+    end_time = end_date.end_of_day
     scoped = visits.where(created_at: start_time..end_time)
-    scoped = scoped.select('distinct(remote_ip)') if unique_visitor
     scoped.group('date_format(created_at, "%Y-%m-%d %H:00")').count
   end
 

@@ -30,4 +30,24 @@
 </table>
 <%= render partial: 'commons/pagination' %>
 
+<div class="clearfix"></div>
+
+<hr/>
+
+<div class="mt40 mb60">
+  <h3 class="form-inline">
+    {{chartTotalVisits || 0}} visits {{timeframe}}
+    <div class="form-group pull-right">
+      <select class="form-control input-sm" ng-model="timeframe" ng-options='item.value as item.label for item in timeframeOpts' ng-change="loadChart()"></select>
+    </div>
+  </h3>
+  <div class="row mt40">
+    <div class="col-sm-12" style="height: 250px;">
+      <p class="text-center" ng-show="showChartLoader"><i>loading...</i></p>
+      <canvas ng-hide="showChartLoader" class="chart chart-line" chart-data="chartData" chart-labels="chartLabels" chart-options="chartOptions">
+      </canvas>
+    </div>
+  </div>
+</div>
+
 <%= render partial: 'templates/modals/visit' %>

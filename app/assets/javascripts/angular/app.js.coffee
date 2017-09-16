@@ -4,6 +4,7 @@ WebApp = angular.module 'WebApp', [
   'nprogress-rails'
   'base64'
   'angularMoment'
+  'chart.js'
   'ui.bootstrap'
   'LinkService'
 ]

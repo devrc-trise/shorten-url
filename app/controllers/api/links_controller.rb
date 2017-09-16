@@ -11,10 +11,11 @@ class Api::LinksController < Api::BaseController
   end
 
   def analytics
-    start_date = params[:start_date].presence || Date.current
-    end_date = params[:end_date].presence || Date.current
-    unique_visitor = params[:unique_visitor] == 'true'
-    render json: @link.visits_per_hour(start_date, end_date, unique_visitor)
+    start_date = Date.parse(params[:start_date]) rescue Date.current
+    end_date = Date.parse(params[:end_date]) rescue Date.current
+    visits_per_hour = @link.visits_per_hour(start_date, end_date)
+    total = visits_per_hour&.values&.sum
+    render json: { visits_per_hour: visits_per_hour, total: total }
   end
 
   protected
